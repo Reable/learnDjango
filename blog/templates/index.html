@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h2>Mini blog with posts</h2>
+    </header>
+    <div class="create-post">
+        <form action="" method="">
+
+            <input type="text" placeholder="title" name="titile">
+            <input type="text" placeholder="body" name="body">
+
+            <button>Create post</button>
+        </form>
+    </div>
+    <div class="posts">
+        {% if posts %}
+            {% for post in posts reversed %}
+                <div class="post" id="{{ post.id }}">
+                    <div class="info">
+                        <h3 class="namePost">{{ post.title }}</h3>
+                        <p>{{ post.body }}</p>
+                        <small>{{ post.created_at }}</small>
+                    </div>
+                    <div class="action">
+                        <button class="deletePost">delete</button>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="notPosts">
+                <h3>Posts not found</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
