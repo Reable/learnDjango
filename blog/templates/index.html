@@ -28,7 +28,7 @@
                         <small>{{ post.created_at }}</small>
                     </div>
                     <div class="action">
-                        <button class="deletePost">delete</button>
+                        <a href="/post/{{ post.id }}" class="deletePost">post</a>
                     </div>
                 </div>
             {% endfor %}
